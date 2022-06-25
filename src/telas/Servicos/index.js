@@ -1,5 +1,6 @@
 import React from 'react';
-import {FlatList, Text, TouchableOpacity, StyleSheet, View} from 'react-native';
+import {FlatList, StyleSheet, View} from 'react-native';
+import Servico from './Servico';
 
 export default function Servicos() {
   const servicos = [
@@ -29,13 +30,11 @@ export default function Servicos() {
       <FlatList
         data={servicos}
         renderItem={({item}) => (
-          <TouchableOpacity style={styles.botao}>
-            <Text style={styles.nome}>{item.nome}</Text>
-            <Text style={styles.descricao}>{item.descricao}</Text>
-            <Text style={styles.preco}>
-              R$ {String(item.preco)?.replace('.', ',')}
-            </Text>
-          </TouchableOpacity>
+          <Servico
+            nome={item.nome}
+            descricao={item.descricao}
+            preco={item.preco}
+          />
         )}
         keyExtractor={id => String(id)}
       />
@@ -44,47 +43,12 @@ export default function Servicos() {
 }
 
 const colors = {
-  cinza: '#948f8f',
-  verde: '#25c244',
   azulBebe: '#ebf3f9',
 };
 
 const styles = StyleSheet.create({
-  botao: {
-    backgroundColor: '#fff',
-    borderRadius: 10,
-    padding: 15,
-    marginBottom: 15,
-    borderTopColor: colors.verde,
-    borderTopWidth: 3,
-
-    shadowColor: '#000',
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 3.84,
-
-    elevation: 5,
-  },
   container: {
     backgroundColor: colors.azulBebe,
     height: '100%',
-  },
-  nome: {
-    fontSize: 20,
-    color: colors.verde,
-    fontWeight: 'bold',
-    marginBottom: 10,
-  },
-  descricao: {
-    color: colors.cinza,
-    marginBottom: 10,
-  },
-  preco: {
-    fontSize: 15,
-    fontWeight: 'bold',
-    color: colors.verde,
   },
 });
