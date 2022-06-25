@@ -8,7 +8,7 @@ export default function Servicos() {
       id: 1,
       nome: 'Banho',
       preco: 79.9,
-      descricao: 'NÃO DE BANHO NO SEU GATO! Mas se precisar nós damos.',
+      descricao: 'NÃO DÊ BANHO NO SEU GATO! Mas se precisar, nós damos.',
     },
     {
       id: 2,
