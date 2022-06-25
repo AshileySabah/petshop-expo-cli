@@ -1,6 +1,6 @@
 import React from 'react';
-import {FlatList, StyleSheet, View} from 'react-native';
-import Servico from './Servico';
+import {FlatList, SafeAreaView, StatusBar} from 'react-native';
+import Item from './Item';
 
 export default function Servicos() {
   const servicos = [
@@ -26,29 +26,13 @@ export default function Servicos() {
   ];
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView>
+      <StatusBar />
       <FlatList
         data={servicos}
-        renderItem={({item}) => (
-          <Servico
-            nome={item.nome}
-            descricao={item.descricao}
-            preco={item.preco}
-          />
-        )}
-        keyExtractor={id => String(id)}
+        renderItem={({item}) => <Item {...item} />}
+        keyExtractor={({id}) => String(id)}
       />
-    </View>
+    </SafeAreaView>
   );
 }
-
-const colors = {
-  azulBebe: '#ebf3f9',
-};
-
-const styles = StyleSheet.create({
-  container: {
-    backgroundColor: colors.azulBebe,
-    height: '100%',
-  },
-});
