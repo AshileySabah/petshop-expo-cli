@@ -1,8 +1,11 @@
-import React from 'react';
-import {Text, View, TextInput, Button} from 'react-native';
+import React, {useState} from 'react';
+import {Text, View, Button} from 'react-native';
 import estilos from './estilos';
+import CampoInteiro from '../../../componentes/CampoInteiro';
 
 export default function Item({nome, preco, descricao}) {
+  const [quantidade, setQuantidade] = useState(1);
+
   return (
     <>
       <View style={estilos.informacao}>
@@ -14,7 +17,7 @@ export default function Item({nome, preco, descricao}) {
         <View>
           <View style={estilos.valor}>
             <Text style={estilos.descricao}>Quantidade: </Text>
-            <TextInput value="0" />
+            <CampoInteiro valor={quantidade} acao={setQuantidade} />
           </View>
           <View style={estilos.valor}>
             <Text style={estilos.descricao}>Preço: </Text>
