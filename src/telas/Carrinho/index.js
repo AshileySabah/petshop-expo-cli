@@ -1,7 +1,6 @@
 import React from 'react';
 import {FlatList} from 'react-native';
 import Item from './Item';
-import TelaPadrao from '../../componentes/TelaPadrao';
 import StatusCarrinho from '../../componentes/StatusCarrinho';
 
 export default function Carrinho() {
@@ -36,7 +35,7 @@ export default function Carrinho() {
   );
 
   return (
-    <TelaPadrao>
+    <>
       <StatusCarrinho total={total} />
       <FlatList
         data={servicos}
@@ -44,6 +43,6 @@ export default function Carrinho() {
         renderItem={({item}) => <Item {...item} />}
         keyExtractor={({id}) => String(id)}
       />
-    </TelaPadrao>
+    </>
   );
 }
