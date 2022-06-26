@@ -1,5 +1,6 @@
 import React from 'react';
 import {FlatList, SafeAreaView, StatusBar} from 'react-native';
+import estilos from '../../estilos';
 import Item from './Item';
 
 export default function Servicos() {
@@ -26,7 +27,7 @@ export default function Servicos() {
   ];
 
   return (
-    <SafeAreaView>
+    <SafeAreaView style={estilos.preencher}>
       <StatusBar />
       <FlatList
         data={servicos}
